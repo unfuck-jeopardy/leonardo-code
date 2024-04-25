@@ -26,14 +26,11 @@ struct player_io {
   char key_press;
 };
 
-struct player_io *all_players;
+struct player_io all_players[PLAYER_COUNT];
 struct player_io *current_player = NULL;
 
 void setup() {
   Keyboard.begin();
-  
-  all_players = (struct player_io*) calloc(4, sizeof(struct player_io));
-  
   // Player A
   all_players[0].led = LED_RED;
   all_players[0].buzzer = BUZZER_IN_0;
